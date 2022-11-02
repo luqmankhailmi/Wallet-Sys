@@ -51,7 +51,7 @@ int main() {
 	bool mainBool = true;
 	while (mainBool == true) {
 		mainMenu();
-		cout << "Enter key: ";
+		cout << " Enter key: ";
 		cin >> key;
 		
 		//-------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ int main() {
 				if (qkey == "q") {
 					quit = true;
 				} else {
-					cout << "Invalid key!";
+					cout << " Invalid key!";
 				}
 			}
 		} //-----------------------------------------------------------------------------
@@ -82,9 +82,9 @@ int main() {
 			bool continueSearch = true;
 			while (continueSearch == true) {
 				if (accounts[iterator][0].length() == 0) {
-					cout << "Input account name : ";
+					cout << " Input account name : ";
 					cin >> accounts[iterator][0];
-					cout << "Input value : RM ";
+					cout << " Input value : RM ";
 					string accountValue;
 					cin >> accounts[iterator][1];
 					continueSearch = false;
@@ -113,17 +113,18 @@ int main() {
 			
 			bool quitRemove = false;
 			while (quitRemove == false) {
-				cout << "Choose an account to be remove(key) or \'q\' to quit'': ";
+				cout << " Choose an account to be remove(key) or \'0\' to quit'': ";
 				int keyRemove;
 				cin >> keyRemove;
 				
 				// continue here
-				if (accounts[keyRemove - 1][0].length() != 0) {
+				if (keyRemove != 0) {
+					if (accounts[keyRemove - 1][0].length() != 0) {
 					accounts[keyRemove - 1][0] = "";
 					accounts[keyRemove - 1][1] = "";
 					
-					cout << "Account has been successfully removed" << endl;
-					cout << "Press \'q\' to exit : ";
+					cout << " Account has been successfully removed" << endl;
+					cout << " Press \'q\' to exit : ";
 					
 					bool reallyQuit = false;
 					while (reallyQuit == false) {
@@ -131,14 +132,16 @@ int main() {
 						cin >> quitRemove;
 						if (quitRemove == "q") {
 							reallyQuit = true;
-							quitRemove = true;
 						}
 					}
-				} 
-				// continue here...
+				    }
+				} else if (keyRemove == 0) {
+					quitRemove = true;
+				}
+				quitRemove = true;
 				
-		}
 			}
+		}
 	}
 	return 0;
 }
