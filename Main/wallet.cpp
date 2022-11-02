@@ -10,8 +10,9 @@ void mainMenu() {
 	cout << "-----------------------------------" << endl;
 	cout << " 1 - ACCOUNTS" << endl;
 	cout << " 2 - ADD ACCOUNT" << endl;
-	cout << " 3 - ADD EXPENSES" << endl;
-	cout << " 4 - EXPENSES HISTORY" << endl;
+	cout << " 3 - REMOVE ACCOUNT" << endl;
+	cout << " 4 - ADD EXPENSES" << endl;
+	cout << " 5 - EXPENSES HISTORY" << endl;
 	cout << "-----------------------------------" << endl;
 }
 
@@ -54,6 +55,7 @@ int main() {
 		cin >> key;
 		
 		//-------------------------------------------------------------------------------
+		// ACCOUNTS LIST
 		
 		if (key == "1") {
 			accountsList(accounts);
@@ -69,6 +71,7 @@ int main() {
 				}
 			}
 		} //-----------------------------------------------------------------------------
+		// ADD ACCOUNT
 		
 		else if (key == "2") {
 			cout << "-----------------------------------" << endl;
@@ -90,6 +93,34 @@ int main() {
 				}
 			}
 		}
+		//------------------------------------------------------------------------------
+		// REMOVE ACCOUNTS
+		
+		else if (key == "3") {
+			cout << "---------------------------" << endl;
+			cout << " REMOVE ACCOUNTS" << endl;
+			bool endOfListRemove = false;
+			int iteratorRemove = 0;
+			while (endOfListRemove == false) {
+				if (accounts[iteratorRemove][0].length() != 0) {
+					cout << " " << iteratorRemove + 1 << ". " << accounts[iteratorRemove][0] << " = RM " << accounts[iteratorRemove][1] << endl;
+					iteratorRemove++;
+				}
+				else {
+					endOfListRemove = true;
+				}
+			}
+			
+			bool quitRemove = false;
+			while (quitRemove == false) {
+				cout << "Choose an account to be remove(key) or \'q\' to quit'': ";
+				string keyRemove;
+				cin >> keyRemove;
+				
+				// continue here
+				quitRemove = true;
+		}
+			}
 	}
 	return 0;
 }
