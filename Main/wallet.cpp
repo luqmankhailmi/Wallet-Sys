@@ -114,11 +114,29 @@ int main() {
 			bool quitRemove = false;
 			while (quitRemove == false) {
 				cout << "Choose an account to be remove(key) or \'q\' to quit'': ";
-				string keyRemove;
+				int keyRemove;
 				cin >> keyRemove;
 				
 				// continue here
-				quitRemove = true;
+				if (accounts[keyRemove - 1][0].length() != 0) {
+					accounts[keyRemove - 1][0] = "";
+					accounts[keyRemove - 1][1] = "";
+					
+					cout << "Account has been successfully removed" << endl;
+					cout << "Press \'q\' to exit : ";
+					
+					bool reallyQuit = false;
+					while (reallyQuit == false) {
+						string quitRemove;
+						cin >> quitRemove;
+						if (quitRemove == "q") {
+							reallyQuit = true;
+							quitRemove = true;
+						}
+					}
+				} 
+				// continue here...
+				
 		}
 			}
 	}
