@@ -18,17 +18,20 @@ void mainMenu() {
 //----------------------------------------------------------------------------------------------
 
 void accountsList(string acc[100][100]) {
+	cout << "-----------------------------------" << endl;
+	cout << " ACCOUNTS LIST" << endl;
 	bool endOfList = false;
 	int iterator = 0;
 	while (endOfList == false) {
 		if (acc[iterator][0].length() != 0) {
-			cout << iterator + 1 << ". " << acc[iterator][0] << " = RM " << acc[iterator][1] << endl;
+			cout << " " << iterator + 1 << ". " << acc[iterator][0] << " = RM " << acc[iterator][1] << endl;
 			iterator++;
 		}
 		else {
 			endOfList = true;
 		}
 	}
+	cout << "-----------------------------------" << endl;
 }
 
 int main() {
@@ -50,10 +53,12 @@ int main() {
 		cout << "Enter key: ";
 		cin >> key;
 		
+		//-------------------------------------------------------------------------------
+		
 		if (key == "1") {
 			accountsList(accounts);
 			bool quit = false;
-			cout << "Press \'q\' to quit.";
+			cout << " Press \'q\' to quit : ";
 			string qkey;
 			cin >> qkey;
 			while (quit == false) {
@@ -61,6 +66,27 @@ int main() {
 					quit = true;
 				} else {
 					cout << "Invalid key!";
+				}
+			}
+		} //-----------------------------------------------------------------------------
+		
+		else if (key == "2") {
+			cout << "-----------------------------------" << endl;
+			cout << " ADD ACCOUNT" << endl;
+			
+			// input data into accounts list
+			int iterator = 0;
+			bool continueSearch = true;
+			while (continueSearch == true) {
+				if (accounts[iterator][0].length() == 0) {
+					cout << "Input account name : ";
+					cin >> accounts[iterator][0];
+					cout << "Input value : RM ";
+					string accountValue;
+					cin >> accounts[iterator][1];
+					continueSearch = false;
+				} else {
+					iterator++;
 				}
 			}
 		}
