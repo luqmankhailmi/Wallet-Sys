@@ -39,11 +39,11 @@ int main() {
 	string expensesHistory[100][100];
 	
 	// test variable--------------------
-	accounts[0][0] = "Bank Islam";
-	accounts[0][1] = "10000";
+	// accounts[0][0] = "Bank Islam";
+	// accounts[0][1] = "10000";
 	
-	accounts[1][0] = "Savings";
-	accounts[1][1] = "99";
+	// accounts[1][0] = "Savings";
+	// accounts[1][1] = "99";
 	//----------------------------------
 	string key;
 	
