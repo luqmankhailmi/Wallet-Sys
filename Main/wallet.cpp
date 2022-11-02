@@ -36,8 +36,13 @@ void accountsList(string acc[100][100]) {
 }
 
 int main() {
+	// accounts-----------------------
 	string accounts[100][100];
 	string expensesHistory[100][100];
+	
+	// expenses------------------------
+	string title[100][100];
+	string value[100][100];
 	
 	// test variable--------------------
 	// accounts[0][0] = "Bank Islam";
@@ -120,20 +125,20 @@ int main() {
 				// continue here
 				if (keyRemove != 0) {
 					if (accounts[keyRemove - 1][0].length() != 0) {
-					accounts[keyRemove - 1][0] = "";
-					accounts[keyRemove - 1][1] = "";
-					
-					cout << " Account has been successfully removed" << endl;
-					cout << " Press \'q\' to exit : ";
-					
-					bool reallyQuit = false;
-					while (reallyQuit == false) {
-						string quitRemove;
-						cin >> quitRemove;
-						if (quitRemove == "q") {
-							reallyQuit = true;
+						accounts[keyRemove - 1][0] = "";
+						accounts[keyRemove - 1][1] = "";
+						
+						cout << " Account has been successfully removed" << endl;
+						cout << " Press \'q\' to exit : ";
+						
+						bool reallyQuit = false;
+						while (reallyQuit == false) {
+							string quitRemove;
+							cin >> quitRemove;
+							if (quitRemove == "q") {
+								reallyQuit = true;
+							}
 						}
-					}
 				    }
 				} else if (keyRemove == 0) {
 					quitRemove = true;
@@ -142,6 +147,30 @@ int main() {
 				
 			}
 		}
+		//---------------------------------------------------------------------------------
+		// ADD EXPENSE
+		else if (key == "4") {
+			cout << "------------------------------------" << endl;
+			cout << " ADD EXPENSES" << endl;
+			accountsList(accounts);
+			cout << " Choose account : ";
+			int keyAccount;
+			cin >> keyAccount;
+			
+			bool checked = false;
+			while (checked = false) {
+				if (accounts[keyAccount - 1][0].length() != 0) {
+					cout << " Account selected : " << accounts[keyAccount][0] << endl;
+					cout << "Title : ";
+					cin >> title[keyAccount - 1][0];
+					cout << "Value : ";
+					cin >> value[keyAccount - 1][1];
+					checked = true;
+					cout << "Title added to list!"; 
+				}
+			}
+		}
+		
 	}
 	return 0;
 }
