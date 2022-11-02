@@ -17,12 +17,12 @@ void mainMenu() {
 
 //----------------------------------------------------------------------------------------------
 
-string accountsList(string acc[100][100]) {
+void accountsList(string acc[100][100]) {
 	bool endOfList = false;
 	int iterator = 0;
 	while (endOfList == false) {
 		if (acc[iterator][0].length() != 0) {
-			cout << iterator << ". " << acc[iterator][0] << " = RM " << acc[iterator][1] << endl;
+			cout << iterator + 1 << ". " << acc[iterator][0] << " = RM " << acc[iterator][1] << endl;
 			iterator++;
 		}
 		else {
@@ -53,16 +53,17 @@ int main() {
 		if (key == "1") {
 			accountsList(accounts);
 			bool quit = false;
+			cout << "Press \'q\' to quit.";
+			string qkey;
+			cin >> qkey;
 			while (quit == false) {
-				cout << "Press \'q\' to quit.";
-				string qkey;
-				cin >> qkey;
 				if (qkey == "q") {
 					quit = true;
+				} else {
+					cout << "Invalid key!";
 				}
 			}
-		} else {
-			mainBool = true;
 		}
 	}
+	return 0;
 }
